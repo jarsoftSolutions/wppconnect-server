@@ -1,22 +1,22 @@
 import { ServerOptions } from './types/ServerOptions';
 
 export default {
-  secretKey: 'THISISMYSECURETOKEN',
+  secretKey: '7401B8C405BE4C97B6DB8EC68027612D',
   host: 'http://localhost',
   port: '21465',
   deviceName: 'WppConnect',
-  poweredBy: 'WPPConnect-Server',
+  poweredBy: 'Watersoft',
   startAllSession: true,
   tokenStoreType: 'file',
   maxListeners: 15,
   customUserDataDir: './userDataDir/',
   webhook: {
     url: null,
-    autoDownload: true,
+    autoDownload: false,
     uploadS3: false,
     readMessage: true,
     allUnreadOnStart: false,
-    listenAcks: true,
+    listenAcks: false,
     onPresenceChanged: true,
     onParticipantsChanged: true,
     onReactionMessage: true,
