@@ -82,3 +82,34 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./swagger-docs
+
+  # A PARTIR DE AQUÍ: Pasos para Docker
+      # 1) Obtenemos la versión desde el nombre del tag (refs/tags/v1.2.3).
+      - name: Extract Docker tag
+        id: docker_tag
+        run: |
+          # github.ref será algo como "refs/tags/v1.2.3"
+          # Usamos bash para quitar el prefijo "refs/tags/"
+          VERSION="${GITHUB_REF#refs/tags/}"
+          echo "version=${VERSION}" >> $GITHUB_OUTPUT
+
+      # 2) Hacemos login en Docker (Docker Hub, GHCR, etc.)
+      - name: Docker Login
+        if: success()
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
+      # 3) Construimos la imagen Docker con la versión igual al tag
+      - name: Build Docker Image
+        if: success()
+        run: |
+          docker build \
+            -t watersoftsrl/whatsappapi:${{ steps.docker_tag.outputs.version }} \
+            -t watersoftsrl/whatsappapi:latest \
+            .
+
+      # 4) Publicamos la imagen Docker
+      - name: Push Docker Image
+        if: success()
+        run: |
+          docker push watersoftsrl/whatsappapi:${{ steps.docker_tag.outputs.version }}
+          docker push watersoftsrl/whatsappapi:latest
