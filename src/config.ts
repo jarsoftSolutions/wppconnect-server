@@ -4,7 +4,7 @@ export default {
   secretKey: '7401B8C405BE4C97B6DB8EC68027612D',
   host: 'http://localhost',
   port: '21465',
-  deviceName: 'WppConnect',
+  deviceName: 'Watersoft-Whatsapp',
   poweredBy: 'Watersoft',
   startAllSession: true,
   tokenStoreType: 'file',

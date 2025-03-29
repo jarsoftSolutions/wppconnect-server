@@ -1,16 +1,55 @@
-version: "3"
+version: '3'
 
 services:
-  wppconnect:
-    container_name: wpp-server
+  watersoft-21465:
+    container_name: watersoft-21465
     restart: unless-stopped
-    build:
-      context: .
+    image: watersoftsrl/whatsapp-api:latest
     volumes:
       - ./config.ts:/usr/src/wpp-server/config.ts
-      - ./wppconnect_tokens:/usr/src/wpp-server/tokens
+      - ./wppconnect_tokens_21465:/usr/src/wpp-server/tokens
     ports:
-      - "21465:21465"
+      - '21465:21465'
+
+  watersoft-21466:
+    container_name: watersoft-21466
+    restart: unless-stopped
+    image: watersoftsrl/whatsapp-api:latest
+    volumes:
+      - ./config.ts:/usr/src/wpp-server/config.ts
+      - ./wppconnect_tokens_21466:/usr/src/wpp-server/tokens
+    ports:
+      - '21466:21465'
+
+  watersoft-21467:
+    container_name: watersoft-21467
+    restart: unless-stopped
+    image: watersoftsrl/whatsapp-api:latest
+    volumes:
+      - ./config.ts:/usr/src/wpp-server/config.ts
+      - ./wppconnect_tokens_21467:/usr/src/wpp-server/tokens
+    ports:
+      - '21467:21465'
+
+  watersoft-21468:
+    container_name: watersoft-21468
+    restart: unless-stopped
+    image: watersoftsrl/whatsapp-api:latest
+    volumes:
+      - ./config.ts:/usr/src/wpp-server/config.ts
+      - ./wppconnect_tokens_21468:/usr/src/wpp-server/tokens
+    ports:
+      - '21468:21465'
+
+  watersoft-21469:
+    container_name: watersoft-21469
+    restart: unless-stopped
+    image: watersoftsrl/whatsapp-api:latest
+    volumes:
+      - ./config.ts:/usr/src/wpp-server/config.ts
+      - ./wppconnect_tokens_21469:/usr/src/wpp-server/tokens
+    ports:
+      - '21469:21470'
 
 volumes:
-  wppconnect_tokens: {}      
+  wppconnect_tokens: {}
