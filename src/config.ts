@@ -3,13 +3,13 @@ import { ServerOptions } from './types/ServerOptions';
 export default {
   secretKey: '7401B8C405BE4C97B6DB8EC68027612D',
   host: 'http://localhost',
-  port: '21465',
+  port: process.env.PORT || '21465',
   deviceName: 'Watersoft-Whatsapp',
   poweredBy: 'Watersoft',
   startAllSession: true,
   tokenStoreType: 'file',
   maxListeners: 15,
-  customUserDataDir: './userDataDir/',
+  customUserDataDir: process.env.USERDATA_DIR || './userDataDir/',
   webhook: {
     url: null,
     autoDownload: false,

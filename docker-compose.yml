@@ -5,9 +5,13 @@ services:
     container_name: watersoft-21465
     restart: unless-stopped
     image: watersoftsrl/whatsapp-api:latest
+    environment:
+      - USERDATA_DIR=/usr/src/wpp-server/userDataDir
+      - PORT=21465
     volumes:
       - ./config.ts:/usr/src/wpp-server/config.ts
       - ./wppconnect_tokens_21465:/usr/src/wpp-server/tokens
+      - ./wppconnect_userdata_21465:/usr/src/wpp-server/userDataDir
     ports:
       - '21465:21465'
 
@@ -15,41 +19,54 @@ services:
     container_name: watersoft-21466
     restart: unless-stopped
     image: watersoftsrl/whatsapp-api:latest
+    environment:
+      - USERDATA_DIR=/usr/src/wpp-server/userDataDir
+      - PORT=21466
     volumes:
       - ./config.ts:/usr/src/wpp-server/config.ts
       - ./wppconnect_tokens_21466:/usr/src/wpp-server/tokens
+      - ./wppconnect_userdata_21466:/usr/src/wpp-server/userDataDir
     ports:
-      - '21466:21465'
+      - '21466:21466'
 
   watersoft-21467:
     container_name: watersoft-21467
     restart: unless-stopped
     image: watersoftsrl/whatsapp-api:latest
+    environment:
+      - USERDATA_DIR=/usr/src/wpp-server/userDataDir
+      - PORT=21467
     volumes:
       - ./config.ts:/usr/src/wpp-server/config.ts
       - ./wppconnect_tokens_21467:/usr/src/wpp-server/tokens
+      - ./wppconnect_userdata_21467:/usr/src/wpp-server/userDataDir
     ports:
-      - '21467:21465'
+      - '21467:21467'
 
   watersoft-21468:
     container_name: watersoft-21468
     restart: unless-stopped
     image: watersoftsrl/whatsapp-api:latest
+    environment:
+      - USERDATA_DIR=/usr/src/wpp-server/userDataDir
+      - PORT=21468
     volumes:
       - ./config.ts:/usr/src/wpp-server/config.ts
       - ./wppconnect_tokens_21468:/usr/src/wpp-server/tokens
+      - ./wppconnect_userdata_21468:/usr/src/wpp-server/userDataDir
     ports:
-      - '21468:21465'
+      - '21468:21468'
 
   watersoft-21469:
     container_name: watersoft-21469
     restart: unless-stopped
     image: watersoftsrl/whatsapp-api:latest
+    environment:
+      - USERDATA_DIR=/usr/src/wpp-server/userDataDir
+      - PORT=21469
     volumes:
       - ./config.ts:/usr/src/wpp-server/config.ts
       - ./wppconnect_tokens_21469:/usr/src/wpp-server/tokens
+      - ./wppconnect_userdata_21469:/usr/src/wpp-server/userDataDir
     ports:
-      - '21469:21470'
-
-volumes:
-  wppconnect_tokens: {}
+      - '21469:21469'
